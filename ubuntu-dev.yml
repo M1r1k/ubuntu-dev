@@ -2,20 +2,22 @@
 
 - name: Ubuntu Development Environment
   hosts: 127.0.0.1
-  user: pcoffey
+  user: m1r1k
   sudo: yes
+
+  vars_files:
+    - vars/main.yml
 
   roles:
     - linux-dev
-    - web
-    - nodejs
-    - ruby
-    - php
+    - geerlingguy.git
+    - geerlingguy.ruby
+    - geerlingguy.java
+    - geerlingguy.php
+    - geerlingguy.composer
+    - geerlingguy.drush
+    - docker.ubuntu
     - mysql
-    - meteor
-    - go
-    - redis
-    - drupal
     - frontend
     - dotfiles
     - browsers

@@ -1,25 +1,41 @@
 ---
 
-- name: Spotify | Add key
-  apt_key: keyserver=keyserver.ubuntu.com id=94558F59
-
-- name: Spotify | Add repository
-  apt_repository: repo='deb http://repository.spotify.com stable non-free' state=present update_cache=yes
-
-- name: Spotify | Install spotify
-  apt: name=spotify-client state=latest
-
-- name: Htop | Install htop
-  apt: name=htop state=latest
-
 - name: Wine | Add repository
   apt_repository: repo='ppa:ubuntu-wine/ppa' state=present update_cache=yes
 
-- name: Wine | Install wine
-  apt: name=wine state=latest
+- name: Wine | Add repository
+  apt_repository: repo='ppa:atareao/telegram' state=present update_cache=yes
 
-- name: sshfs | Install sshfs
-  apt: name=sshfs state=latest
+- name: Skype | Add skype repo
+  shell: add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+
+- name: Misc | Install apps
+  apt: name={{ item }} state=latest
+  with_items:
+    - sni-qt:i386
+    - libdbusmenu-qt2:i386
+    - libqt4-dbus:i386
+    - libxss1:i386
+    - telegram
+    - htop
+    - skype
+    - wget
+    - curl
+    - wine
+    - sshfs
+    - mercurial
+    - terminator
+    - zsh
+    - got-core
+
+- name: Misc | Install ZSH
+  shell: wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh && chsh -s `which zsh`
+
+- name: Misc | Install Oh My Zsh
+  shell: sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+- name: Misc | Install Viber
+  shell: wget -O viber64-NoobsLab.com.deb http://download.cdn.viber.com/cdn/desktop/Linux/viber.deb && dpkg -i viber64-NoobsLab.com.deb
 
 - name: sshfs | Load sshfs to kernal
   command: modprobe fuse

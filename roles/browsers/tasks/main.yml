@@ -1,5 +1,12 @@
 ---
 
-- name: Chromium | Install Chromium
+- name: Browsers | Install Chromium
   apt: pkg=chromium-browser state=installed
-  tags: chromium
+  tags: browsers
+
+- name: Browsers | Prepare Firefox installation
+  apt_repository: repo='ppa:ubuntu-mozilla-daily/ppa' state=present
+  tags: browsers
+
+- name: Browsers | Install Firefox Nightly
+  apt: pkg=firefox-trunk state=installed

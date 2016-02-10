@@ -8,3 +8,6 @@
 
 - name: Kernal | Install linux-headers-*-generic
   action: shell apt-get install -y linux-headers-$(uname -r)
+
+- name: Kernal | Install linux-headers-*-generic
+  apt: name=python-software-properties state=installed
