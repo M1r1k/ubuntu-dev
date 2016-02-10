@@ -1,6 +1,9 @@
+geerlingguy.nodejs
 geerlingguy.dotfiles
+angstwad.docker_ubuntu
 geerlingguy.ruby
 geerlingguy.java
 geerlingguy.php
 geerlingguy.composer
+geerlingguy.drush
 geerlingguy.git

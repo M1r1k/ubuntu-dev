@@ -12,11 +12,3 @@
 - name: CSS | Install Aurora
   action: command gem install compass-aurora
 
-- name: Grunt | Install Grunt
-  npm: name=grunt-cli state=present global=yes
-
-- name: Gulp | Install Gulp
-  npm: name=gulp state=present global=yes
-
-- name: Bower | Install Bower
-  npm: name=bower state=present global=yes

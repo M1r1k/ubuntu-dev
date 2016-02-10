@@ -10,7 +10,7 @@
   apt_repository: repo='ppa:webupd8team/sublime-text-2' state=present update_cache=yes
 
 - name: Skype | Add skype repo
-  shell: add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+  shell: add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner" && apt-get update
 
 - name: Misc | Install apps
   apt: name={{ item }} state=latest
@@ -23,6 +23,7 @@
     - htop
     - skype
     - wget
+    - vim
     - curl
     - wine
     - sshfs
@@ -30,7 +31,7 @@
     - mercurial
     - terminator
     - zsh
-    - got-core
+    - git-core
 
 - name: Misc | Install ZSH
   shell: wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh && chsh -s `which zsh`

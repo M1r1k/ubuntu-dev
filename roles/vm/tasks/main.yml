@@ -10,9 +10,15 @@
   apt: name=virtualbox state=installed force=yes
 
 - name: VM | Check if vagrant installed
-  command: vagrant -v
+  shell: vagrant -v
+  ignore_errors: true
   register: vagrant_check
 
+- name: VM | Download vagrant
+  get_url: url=https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb dest=/tmp/vagrant_1.8.1_x86_64.deb
+  when: vagrant_check.stderr.find('not found') != -1
+
 - name: VM | Install vagrant
-  shell: wget wget https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb -P /tmp && dpkg -i /tmp/vagrant_1.8.1_x86_64.deb
-  when: vagrant_check.stdout.find('is not installed') != -1
+  apt: deb=/tmp/vagrant_1.8.1_x86_64.deb
+  when: vagrant_check.stderr.find('not found') != -1
+

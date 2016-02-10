@@ -1,21 +1,20 @@
+nodejs_forever: true
+nodejs_npm_global_packages:
+  - name: grunt-cli
+  - name: gulp
+  - name: bower
 php_memory_limit: "1024M"
 php_max_execution_time: "90"
 php_upload_max_filesize: "256M"
 php_packages:
-  - php
-  - php-cli
-  - php-common
-  - php-devel
-  - php-gd
-  - php-mbstring
-  - php-pdo
-  - php-pecl-apc
-  - php-xml
-  - php5-dev
-  - php-pear
-  - php5-intl
-  - php5-ldap
+  - php5-cli
   - php5-curl
-  - php5-xdebug
+  - php5-gd
+  - php5-intl
+  - php5-mcrypt
+  - php5-memcache
+  - php5-imagick
   - php5-mysql
-  - php5-json
+  - php-apc
+  - libapache2-mod-php5
+  - php5-dev

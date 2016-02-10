@@ -16,11 +16,11 @@
     - geerlingguy.php
     - geerlingguy.composer
     - geerlingguy.drush
-    - docker.ubuntu
+    - geerlingguy.nodejs
+    - angstwad.docker_ubuntu
     - mysql
     - frontend
     - dotfiles
     - browsers
     - vm
     - misc
-    - fourkitchens
