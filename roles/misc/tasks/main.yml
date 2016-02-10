@@ -6,6 +6,9 @@
 - name: Wine | Add repository
   apt_repository: repo='ppa:atareao/telegram' state=present update_cache=yes
 
+- name: Wine | Add repository
+  apt_repository: repo='ppa:webupd8team/sublime-text-2' state=present update_cache=yes
+
 - name: Skype | Add skype repo
   shell: add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
 
@@ -23,6 +26,7 @@
     - curl
     - wine
     - sshfs
+    - sublime-text
     - mercurial
     - terminator
     - zsh
